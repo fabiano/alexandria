@@ -1,0 +1,31 @@
+@page "/"
+
+<h2>Livros</h2>
+
+<ul>
+  @foreach (var book in Books)
+  {
+    <li>@book.Name</li>
+  }
+</ul>
+
+@code {
+  public List<Book> Books => [.. Directory
+    .EnumerateFiles(".", "*.*", SearchOption.AllDirectories)
+    .Where(f =>
+      f.EndsWith(".epub", StringComparison.OrdinalIgnoreCase) ||
+      f.EndsWith(".mobi", StringComparison.OrdinalIgnoreCase) ||
+      f.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+    .GroupBy(
+      keySelector: f => Path.GetFileNameWithoutExtension(f),
+      elementSelector: f => new FileInfo(f))
+    .Select(g =>
+    {
+      var name = g.Key;
+      var files = g.ToList();
+
+      return new Book(name, files);
+    })];
+
+  public record struct Book(string Name, List<FileInfo> Files);
+}

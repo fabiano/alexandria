@@ -1,0 +1,21 @@
+@using Microsoft.AspNetCore.Components.Routing
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Alexandria</title>
+</head>
+
+<body>
+  <h1>Alexandria</h1>
+  <Router AppAssembly="typeof(Program).Assembly">
+    <Found Context="routeData">
+      <RouteView RouteData="routeData" />
+    </Found>
+  </Router>
+</body>
+
+</html>
