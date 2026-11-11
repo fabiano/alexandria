@@ -1,6 +1,6 @@
 # alexandria
 
-alexandria is a self-hosted application that lets you browse your ebooks (epub, pdf, mobi).
+Alexandria is a self-hosted application that lets me browse my e-books (EPUB, PDF, and MOBI).
 
 ## Prerequisites
 
