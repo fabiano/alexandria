@@ -11,7 +11,7 @@ trim_trailing_whitespace = true
 indent_size = 4
 trim_trailing_whitespace = false
 
-[*.cs]
+[*.{cs,razor}]
 indent_size = 4
 csharp_style_var_elsewhere = true
 csharp_style_var_for_built_in_types = true
